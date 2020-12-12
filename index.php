@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
@@ -7,9 +10,12 @@
 <body>
     <div class="menu">
         <a href="">Home</a>
-        <a href="">log in</a>
         <a href="">Users</a>
-
+        <?php if (!empty($_SESSION["loggedin"])) { ?>
+            <a href="logout.php">log out</a>
+        <?php } else { ?>
+            <a href="login.php">log in</a>
+        <?php } ?>
     </div>
     <div class="post-box">
         <div class="post">
